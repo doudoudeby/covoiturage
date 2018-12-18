@@ -2,3 +2,8 @@
 
   width: 90%;
 }
+
+#results{
+  overflow-y: scroll;
+  height: 350px;
+}
