@@ -11,12 +11,48 @@ import { LoginclientComponent } from './client/loginclient/loginclient.component
 import { RegisterclientComponent } from './client/registerclient/registerclient.component';
 import { RegisterComponent } from './driver/register/register.component';
 import { LoginComponent } from './driver/login/login.component';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {CommonModule} from '@angular/common';
+import {MzButtonModule, MzDatepickerModule, MzIconMdiModule, MzInputModule, MzTimepickerModule} from 'ngx-materialize';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MzValidationModule } from 'ngx-materialize';
+
 
 
 const routerconfig: Routes = [
   {path: '' , component: HomeComponent },
-  {path: 'driver' , component: ProfilComponent},
-  {path: 'client' , component: ProfilclientComponent},
+  {path: 'driver' , component: ProfilComponent,
+    children : [
+      {
+        path: 'profil',
+        component: ProfilComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterComponent
+      },
+    ]
+
+
+  },
+  // {path: 'client' , component: ProfilclientComponent,
+  //   children: [
+  //     {
+  //       path: 'login',
+  //       component: LoginclientComponent
+  //     },
+  //     {
+  //       path: 'register',
+  //       component: RegisterclientComponent
+  //     },
+  //   ]
+  //
+  //
+  // },
 ];
 
 
@@ -33,7 +69,19 @@ const routerconfig: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routerconfig)
+    BrowserAnimationsModule,
+    CommonModule,
+    RouterModule.forRoot(routerconfig),
+    MzButtonModule,
+    MzInputModule,
+    MzDatepickerModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NoopAnimationsModule,
+    MzValidationModule,
+    MzTimepickerModule,
+    MzIconMdiModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
