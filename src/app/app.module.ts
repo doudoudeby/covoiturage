@@ -13,9 +13,15 @@ import { RegisterComponent } from './driver/register/register.component';
 import { LoginComponent } from './driver/login/login.component';
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule} from '@angular/common';
-import {MzButtonModule, MzDatepickerModule, MzIconMdiModule, MzInputModule, MzTimepickerModule} from 'ngx-materialize';
+import {MzButtonModule, MzDatepickerModule, MzIconMdiModule, MzInputModule, MzModalModule, MzTimepickerModule} from 'ngx-materialize';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MzValidationModule } from 'ngx-materialize';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 
 
@@ -80,7 +86,13 @@ const routerconfig: Routes = [
     NoopAnimationsModule,
     MzValidationModule,
     MzTimepickerModule,
-    MzIconMdiModule
+    MzIconMdiModule,
+    MzModalModule,
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule //
+
 
   ],
   providers: [],

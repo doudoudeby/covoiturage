@@ -3,7 +3,26 @@
     <h2 class="header">COVOITURAGE</h2>
 
     <div class="col offset-s6 offset-m6 ">
-      <button class="btn purple waves-effect waves-light">Login</button>&nbsp;&nbsp;
+      <button class="btn purple waves-effect  waves-light" (click)="bottomSheetModal.openModal()">Login</button>&nbsp;&nbsp;
+      <mz-modal #bottomSheetModal [fixedFooter]="true"  [options]="modalOptions">
+        <mz-modal-header>
+          <h4>Modal Title</h4>
+        </mz-modal-header>
+        <mz-modal-content>
+          <button class="waves-effect waves-light btn red darken-2" (click)="google()">
+           Sign in with Google</button>
+          &nbsp;&nbsp;
+          <button class="waves-effect waves-light btn blue darken-2" (click)="facebook()">
+            Sign in with facebook
+          </button>
+        </mz-modal-content>
+        <mz-modal-footer>
+          <button mz-button [flat]="true" mz-modal-close>Disagree</button>
+          <button mz-button [flat]="true" mz-modal-close>Agree</button>
+        </mz-modal-footer>
+      </mz-modal>
+
+
       <button class="btn indigo waves-effect waves-light">register</button>
     </div>
   </div>

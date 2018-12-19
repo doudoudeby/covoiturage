@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
+
+
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,7 +13,24 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 })
 export class HomeComponent implements OnInit {
 
+  /* Modal options */
+  public modalOptions: Materialize.ModalOptions = {
 
+    dismissible: false, // Modal can be dismissed by clicking outside of the modal
+    opacity: .5, // Opacity of modal background
+    inDuration: 300, // Transition in duration
+    outDuration: 200, // Transition out duration
+    startingTop: '100%', // Starting top style attribute
+    endingTop: '10%', // Ending top style attribute
+    // ready: (modal, trigger) => { // Callback for Modal open. Modal and trigger parameters available.
+    //   alert('Ready');
+    //   console.log(modal, trigger);
+    // },
+    // complete: () => { alert('Closed'); } // Callback for Modal close
+  };
+
+
+  /* DatePickerOptions */
   public datepickerOptions: Pickadate.DateOptions = {
     clear: 'Supprimer', // Clear button text
     close: 'Ok',    // Ok button text
@@ -23,6 +45,8 @@ export class HomeComponent implements OnInit {
     selectYears: 10,    // Creates a dropdown of 10 years to control year,
   };
 
+
+  /* TimePicker Modal */
   public timepickerOptions: Pickadate.TimeOptions = {
     default: 'now', // Set default time: 'now', '1:30AM', '16:30'
     fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
@@ -53,7 +77,7 @@ export class HomeComponent implements OnInit {
   private profileForm: FormGroup;
 
 
-  constructor(private  formBuilder: FormBuilder) {
+  constructor(private  formBuilder: FormBuilder , public afAuth: AngularFireAuth ) {
   }
 
   ngOnInit() {
@@ -72,9 +96,30 @@ export class HomeComponent implements OnInit {
   }
 
 
+  facebook() {
+
+    this.afAuth.auth.signInWithPopup(new auth.FacebookAuthProvider()).then(
+      data => console.log(data)
+    ).catch(
+      (error) => console.log(error)
+    );
+
+  }
+
+  google() {
+
+    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
+      (data) => {
+        console.log(data);
+      }
+    ).catch(
+      (error) => console.log(error)
+    );
+  }
 
 
   onSubmit() {
+
 
     console.log(this.profileForm.value);
   }
