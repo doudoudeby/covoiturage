@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {auth} from 'firebase';
 import * as firebase from 'firebase';
 import {AngularFireAuth} from '@angular/fire/auth';
@@ -11,7 +11,10 @@ import {Router} from '@angular/router';
 })
 export class HeadersComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth ,private route: Router) { }
+  @Input() titre: string ;
+
+
+  constructor(public afAuth: AngularFireAuth , private route: Router) { }
 
   ngOnInit() {
   }

@@ -1,5 +1,9 @@
 <div class="row">
+  <div>
   <h2 class="header">COVOITURAGE</h2>
+  <span> {{ titre }} </span>
+  </div>
+
 
   <div class="col offset-s6 offset-m6 ">
 
@@ -18,9 +22,9 @@
         [outDuration]="300"
         [stopPropagation]="true"
       >
-        <mz-dropdown-item><a href="#!">Profile</a></mz-dropdown-item>
-        <mz-dropdown-item><a href="#!">Proposer un trajet</a></mz-dropdown-item>
-        <mz-dropdown-item><a href="#!">faire un trajet</a></mz-dropdown-item>
+        <mz-dropdown-item><a routerLink="/profile">Profile</a></mz-dropdown-item>
+        <mz-dropdown-item><a routerLink="/service" >Proposer un trajet</a></mz-dropdown-item>
+        <mz-dropdown-item><a routerLink="/home" >faire un trajet</a></mz-dropdown-item>
         <mz-dropdown-divider></mz-dropdown-divider>
         <mz-dropdown-item><a class="red darken-2 float-right" (click)="logout()" >Deconnexion</a></mz-dropdown-item>
       </mz-dropdown>

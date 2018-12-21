@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as firebase from 'firebase';
 import { AngularFireAuth } from '@angular/fire/auth';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -11,13 +12,15 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class AppComponent implements OnInit{
   title = 'covoiturage';
 
-  constructor(public afAuth: AngularFireAuth){
+
+  constructor(public afAuth: AngularFireAuth , private route: Router){
 
 
   }
 
 
   ngOnInit() {
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         console.log('user state changed' , user );

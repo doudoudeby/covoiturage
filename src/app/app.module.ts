@@ -26,12 +26,30 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { HeadersComponent } from './pages/headers/headers.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { DriverComponent } from './pages/driver/driver.component';
 
 
 
 const routerconfig: Routes = [
-  {path: '' , component: HomeComponent },
-  {path: 'home' , component: HomeComponent }
+
+  {
+    path: 'home', component: HomeComponent,
+    // data : {title : 'Faire une réservation' }
+  },
+  {
+    path: 'profile' , component: ProfileComponent,
+     // data: { title: 'Modifier Mon Profile' }
+  },
+  {
+    path: 'service' , component: DriverComponent,
+    // data: { title: 'Proposer un trajet' }
+  },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
 ];
 
 
@@ -39,7 +57,9 @@ const routerconfig: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    HeadersComponent
+    HeadersComponent,
+    ProfileComponent,
+    DriverComponent
   ],
   imports: [
     BrowserModule,

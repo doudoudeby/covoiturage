@@ -1,22 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
-import * as firebase from 'firebase';
-
-import { Router } from '@angular/router';
-
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Router} from '@angular/router';
+import {auth} from 'firebase';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-driver',
+  templateUrl: './driver.component.html',
+  styleUrls: ['./driver.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  title: 'Modifier Mon Profile';
-
+export class DriverComponent implements OnInit {
 
   /* DatePickerOptions */
   public datepickerOptions: Pickadate.DateOptions = {
