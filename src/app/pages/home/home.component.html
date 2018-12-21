@@ -1,149 +1,1 @@
-<div class="col s12 m7">
-  <div class="row">
-    <h2 class="header">COVOITURAGE</h2>
-
-    <div class="col offset-s6 offset-m6 ">
-      <button class="btn purple waves-effect  waves-light" (click)="bottomSheetModal.openModal()">Login</button>&nbsp;&nbsp;
-      <mz-modal #bottomSheetModal [fixedFooter]="true"  [options]="modalOptions">
-        <mz-modal-header>
-          <h4>Modal Title</h4>
-        </mz-modal-header>
-        <mz-modal-content>
-          <button class="waves-effect waves-light btn red darken-2" (click)="google()">
-           Sign in with Google</button>
-          &nbsp;&nbsp;
-          <button class="waves-effect waves-light btn blue darken-2" (click)="facebook()">
-            Sign in with facebook
-          </button>
-        </mz-modal-content>
-        <mz-modal-footer>
-          <button mz-button [flat]="true" mz-modal-close>Disagree</button>
-          <button mz-button [flat]="true" mz-modal-close>Agree</button>
-        </mz-modal-footer>
-      </mz-modal>
-
-
-      <button class="btn indigo waves-effect waves-light">register</button>
-    </div>
-  </div>
-
-  <div class="card horizontal">
-    <div class="card-image">
-      <img src="../../../assets/images/hom.jpg" id="img">
-    </div>
-    <div class="card-stacked">
-      <div class="card-content">
-        <div class="row">
-
-          <form class="col s12"  [formGroup]="profileForm" (ngSubmit)="onSubmit()">
-            <div class="row">
-
-              <div class="input-field col s6">
-                <i class="material-icons prefix">location_searching</i>
-                <input id="icon_prefix" formControlName="depart" type="text" class="validate">
-                <label for="icon_prefix">DEPART</label>
-              </div>
-
-              <div class="input-field col s6">
-                <i class="material-icons prefix">location_on</i>
-                <input id="icon_telephone" formControlName="destination" type="tel" class="validate">
-                <label for="icon_telephone">DESTINATION</label>
-              </div>
-            </div>
-
-            <div class="row">
-              <mz-datepicker-container class="col s12 m6">
-                <i mz-icon-mdi mz-input-prefix
-                   [icon]="'calendar'">
-                </i>
-                <input mz-datepicker mz-validation required
-                       id="datepicker-form-state"
-                       formControlName="date"
-                       type="text"
-                       [errorMessageResource]="errorMessages.datepicker"
-                       [label]="'Date'"
-                       [options]="datepickerOptions"
-                       [placeholder]="'Saisissez la date'">
-              </mz-datepicker-container>
-
-              <mz-timepicker-container class="col s12 m6">
-                <i mz-icon-mdi mz-input-prefix
-                   [icon]="'clock'">
-                </i>
-                <input mz-timepicker
-                       [label]="'Heure'"
-                       [options]="timepickerOptions"
-                       id="timepicker"
-                       formControlName="heure"
-                       placeholder="Choisissez une heure pour votre course"
-                       type="text">
-              </mz-timepicker-container>
-            </div>
-
-              <div class="row ">
-                <button  class="btn btn-small waves-effect waves-light"  type="submit">Lancé <i class="material-icons right">send</i></button>
-              </div>
-          </form>
-
-
-
-      </div>
-
-        <div id="results">
-          <ul class="collection">
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-            <li class="collection-item">
-              <div class="card-action">
-                <a href="#">This is a link</a>
-              </div>
-            </li>
-
-
-          </ul>
-        </div>
-
-    </div>
-  </div>
-</div>
-</div>
+<div class="col s12 m7">  <app-headers></app-headers>  <div class="card horizontal">    <div class="card-image">      <img src="../../../assets/images/hom.jpg" id="img">    </div>    <div class="card-stacked">      <div class="card-content">        <div class="row">          <form class="col s12"  [formGroup]="profileForm" (ngSubmit)="onSubmit()">            <div class="row">              <div class="input-field col s6">                <i class="material-icons prefix">location_searching</i>                <input id="icon_prefix" formControlName="depart" type="text" class="validate">                <label for="icon_prefix">DEPART</label>              </div>              <div class="input-field col s6">                <i class="material-icons prefix">location_on</i>                <input id="icon_telephone" formControlName="destination" type="tel" class="validate">                <label for="icon_telephone">DESTINATION</label>              </div>            </div>            <div class="row">              <mz-datepicker-container class="col s12 m6">                <i mz-icon-mdi mz-input-prefix                   [icon]="'calendar'">                </i>                <input mz-datepicker mz-validation required                       id="datepicker-form-state"                       formControlName="date"                       type="text"                       [errorMessageResource]="errorMessages.datepicker"                       [label]="'Date'"                       [options]="datepickerOptions"                       [placeholder]="'Saisissez la date'">              </mz-datepicker-container>              <mz-timepicker-container class="col s12 m6">                <i mz-icon-mdi mz-input-prefix                   [icon]="'clock'">                </i>                <input mz-timepicker                       [label]="'Heure'"                       [options]="timepickerOptions"                       id="timepicker"                       formControlName="heure"                       placeholder="Choisissez une heure pour votre course"                       type="text">              </mz-timepicker-container>            </div>              <div class="row ">                <button  class="btn btn-small waves-effect waves-light"  type="submit">Lancé <i class="material-icons right">send</i></button>              </div>          </form>      </div>        <div id="results">          <ul class="collection">            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>            <li class="collection-item">              <div class="card-action">                <a href="#">This is a link</a>              </div>            </li>          </ul>        </div>    </div>  </div></div></div>

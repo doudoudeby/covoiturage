@@ -1,0 +1,46 @@
+<div class="row">
+  <h2 class="header">COVOITURAGE</h2>
+
+  <div class="col offset-s6 offset-m6 ">
+
+    <div *ngIf="afAuth.user | async as user; else showLogin">
+      <!--<h1>Hello {{ user.displayName }}!</h1>-->
+
+      <mz-dropdown
+        [id]="'dropdown-demo'"
+        [align]="'left'"
+        [belowOrigin]="false"
+        [constrainWidth]="true"
+        [dropdownButtonId]="'btn-dropdown-demo'"
+        [gutter]="true"
+        [hover]="false"
+        [inDuration]="300"
+        [outDuration]="300"
+        [stopPropagation]="true"
+      >
+        <mz-dropdown-item><a href="#!">Profile</a></mz-dropdown-item>
+        <mz-dropdown-item><a href="#!">Proposer un trajet</a></mz-dropdown-item>
+        <mz-dropdown-item><a href="#!">faire un trajet</a></mz-dropdown-item>
+        <mz-dropdown-divider></mz-dropdown-divider>
+        <mz-dropdown-item><a class="red darken-2 float-right" (click)="logout()" >Deconnexion</a></mz-dropdown-item>
+      </mz-dropdown>
+
+      <div class="chip">
+        <img src="{{ user.photoURL }}" alt="Contact Person">
+        <a id="btn-dropdown-demo" href="#">{{ user.displayName }}</a>
+      </div>
+    </div>
+
+    <ng-template #showLogin>
+
+
+      <button  class="waves-effect waves-light btn red darken-2" (click)="google()">
+        Sign in with Google
+      </button>
+
+
+
+      <button class="btn indigo waves-effect waves-light" (click)="phoneNumber()">Sign in with Phone Number</button>
+    </ng-template>
+  </div>
+</div>

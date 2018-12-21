@@ -3,7 +3,9 @@ import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { auth } from 'firebase/app';
+import * as firebase from 'firebase';
 
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,21 +15,6 @@ import { auth } from 'firebase/app';
 })
 export class HomeComponent implements OnInit {
 
-  /* Modal options */
-  public modalOptions: Materialize.ModalOptions = {
-
-    dismissible: false, // Modal can be dismissed by clicking outside of the modal
-    opacity: .5, // Opacity of modal background
-    inDuration: 300, // Transition in duration
-    outDuration: 200, // Transition out duration
-    startingTop: '100%', // Starting top style attribute
-    endingTop: '10%', // Ending top style attribute
-    // ready: (modal, trigger) => { // Callback for Modal open. Modal and trigger parameters available.
-    //   alert('Ready');
-    //   console.log(modal, trigger);
-    // },
-    // complete: () => { alert('Closed'); } // Callback for Modal close
-  };
 
 
   /* DatePickerOptions */
@@ -77,7 +64,7 @@ export class HomeComponent implements OnInit {
   private profileForm: FormGroup;
 
 
-  constructor(private  formBuilder: FormBuilder , public afAuth: AngularFireAuth ) {
+  constructor(private  formBuilder: FormBuilder , public afAuth: AngularFireAuth , private route: Router) {
   }
 
   ngOnInit() {
@@ -106,16 +93,8 @@ export class HomeComponent implements OnInit {
 
   }
 
-  google() {
 
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider()).then(
-      (data) => {
-        console.log(data);
-      }
-    ).catch(
-      (error) => console.log(error)
-    );
-  }
+
 
 
   onSubmit() {
